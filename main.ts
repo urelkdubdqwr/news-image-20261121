@@ -1,15 +1,23 @@
-// make.fun news-image-20261121 — round-2 entry
+// make.fun news-image-20261121 — round-4 entry
 // Entry title: Saturday 21 November 2026: 40+ stories, six regions
 //
 // This entrypoint publishes the frozen front page for the make.fun
-// news-image-20261121 competition. The round-2 page ("THE WORLD'S NEWS IN ONE
+// news-image-20261121 competition. The page ("THE WORLD'S NEWS IN ONE
 // PICTURE", Saturday 21 November 2026) is a broadsheet with a masthead date,
 // a six-metric strip (each a big number plus a plain label), a schematic world
 // map whose numbered pins match the 43 briefs one-for-one, three illustrated
-// leads, nine illustrated cards, 31 single-line regional briefs, and a
+// leads chosen for consequence (the Riyadh intercept, the Shenzhen
+// trilateral, the Russian strike on Poland), nine illustrated cards, 31
+// single-line regional briefs whose headline fragments carry a place, and a
 // DATE CHECK box naming what did NOT happen on the day.
-// Round 2 sums up Saturday 21 November 2026 with 40+ stories spread across the
-// six named regions, tying every pinned brief to a dateline on that same day.
+// Round 4 sums up Saturday 21 November 2026 with 40+ stories spread across the
+// six named regions, keeping the DATE CHECK box and the grid in agreement.
+//
+// Behavior: copy the pre-rendered entry.png into the output directory.
+//   - MAKEFUN_OUTPUT_DIR overrides the destination directory (default /output)
+//   - refuses to publish an empty (0-byte) entry
+//   - refuses to publish an entry above the 1048576-byte size limit
+//   - prints a confirmation line on success
 //
 // Behavior: copy the pre-rendered entry.png into the output directory.
 //   - MAKEFUN_OUTPUT_DIR overrides the destination directory (default /output)

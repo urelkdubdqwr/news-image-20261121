@@ -8,6 +8,8 @@
 // map whose numbered pins match the 43 briefs one-for-one, three illustrated
 // leads, nine illustrated cards, 31 single-line regional briefs, and a
 // DATE CHECK box naming what did NOT happen on the day.
+// Round 2 sums up Saturday 21 November 2026 with 40+ stories spread across the
+// six named regions, tying every pinned brief to a dateline on that same day.
 //
 // Behavior: copy the pre-rendered entry.png into the output directory.
 //   - MAKEFUN_OUTPUT_DIR overrides the destination directory (default /output)
@@ -21,7 +23,7 @@ const entry = new URL("./entry.png", import.meta.url);
 const size = statSync(entry).size;
 
 if (size === 0) {
-  throw new Error("entry.png is empty (0 bytes): no news page to publish, aborting before writing to disk");
+  throw new Error("entry.png is empty (0 bytes): this is a baked image that failed to render, so there is no news page to publish and nothing will be written to disk");
 }
 if (size > 1048576) {
   throw new Error(`entry.png is ${size} bytes, exceeding the 1048576 byte limit for the competition`);
@@ -30,4 +32,4 @@ if (size > 1048576) {
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
 const dest = join(outDir, "entry.png");
 copyFileSync(entry, dest);
-console.log(`Copied entry.png (${size} bytes) to ${dest}`);
+console.log(`Copied entry.png (${size} bytes, source byte size ${statSync(entry).size}) to ${dest}`);
